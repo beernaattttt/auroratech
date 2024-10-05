@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAPS Studios Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>RAPS STUDIOS TEAM</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">LOGIN</button>
+  </div>
+
+  <!-- Notification for Login Feedback -->
+  <div id="notification" class="notification">
+    <i id="notif-icon"></i>
+    <span id="notif-message"></span>
+    <div id="loading-spinner" class="loading-spinner" style="display: none;"></div>
+  </div>
+
+  <!-- JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
