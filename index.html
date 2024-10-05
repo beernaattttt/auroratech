@@ -3,17 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RAPS Studios Login</title>
+  <title>Travel World Parks & Resorts Login</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Login Form -->
+  <!-- Background Image -->
+  <div class="background-image"></div>
+
+  <!-- Login Form Container -->
   <div class="login-container">
-    <h2>RAPS STUDIOS TEAM</h2>
-    <input type="text" id="username" placeholder="Username" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button onclick="login()">LOGIN</button>
+    <div class="login-box">
+      <!-- Custom Logo for Travel World -->
+      <div class="logo-container">
+        <img src="logo.png" alt="Travel World Parks & Resorts" class="logo">
+        <h2>Travel World Parks & Resorts</h2>
+        <p>Connecting to Travel World</p>
+      </div>
+
+      <!-- Login Form -->
+      <div class="form-container">
+        <input type="text" id="username" placeholder="Username" required>
+        <button onclick="login()">CONFIRM</button>
+      </div>
+
+      <!-- Other Login Options -->
+      <div class="extra-options">
+        <a href="#" class="login-option">13+ LOGIN</a>
+        <a href="#" class="login-option">STAFF LOGIN</a>
+      </div>
+    </div>
   </div>
 
   <!-- Notification for Login Feedback -->
