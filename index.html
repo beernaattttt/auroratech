@@ -1,48 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel World Parks & Resorts Login</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Sidebar animations */
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar-hidden {
+            transform: translateX(-100%);
+        }
+
+        /* Overlay animation */
+        .overlay-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Smooth hover effects */
+        .hover-scale:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .bg-gradient {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white font-sans">
+    <!-- Navbar -->
+    <header class="bg-gray-800 sticky top-0 z-20 shadow-lg flex justify-between items-center p-4">
+        <div class="flex items-center">
+            <button id="toggleSidebar" class="md:hidden bg-blue-600 px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-500 transition">
+                ☰
+            </button>
+            <h1 class="text-2xl font-bold text-blue-500 ml-4 md:ml-0">ARIA Dashboard</h1>
+        </div>
+        <nav class="hidden md:flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-white transition">Home</a>
+            <a href="#" class="text-gray-400 hover:text-white transition">Documentation</a>
+            <a href="#" class="text-gray-400 hover:text-white transition">Support</a>
+            <a href="#" class="text-gray-400 hover:text-white transition">Contact</a>
+        </nav>
+    </header>
 
-  <!-- Background Image -->
-  <div class="background-image"></div>
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar sidebar-hidden fixed top-0 left-0 w-64 h-full bg-gray-800 shadow-lg z-30 md:hidden">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold text-white mb-6">Navigation</h2>
+            <ul class="space-y-4">
+                <li><a href="#" class="text-gray-300 hover:text-blue-400">Home</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-blue-400">Documentation</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-blue-400">Support</a></li>
+                <li><a href="#" class="text-gray-300 hover:text-blue-400">Contact</a></li>
+            </ul>
+            <button id="closeSidebar" class="mt-6 bg-blue-600 px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-500 transition">
+                Close
+            </button>
+        </div>
+    </aside>
 
-  <!-- Login Form Container -->
-  <div class="login-container">
-    <div class="login-box">
-      <!-- Custom Logo for Travel World -->
-      <div class="logo-container">
-        <img src="logo.png" alt="Travel World Parks & Resorts" class="logo">
-        <h2>Travel World Parks & Resorts</h2>
-        <p>Connecting to Travel World</p>
-      </div>
+    <!-- Overlay for Sidebar -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 overlay-hidden z-10 md:hidden"></div>
 
-      <!-- Login Form -->
-      <div class="form-container">
-        <input type="text" id="username" placeholder="Username" required>
-        <button onclick="login()">CONFIRM</button>
-      </div>
+    <!-- Hero Section -->
+    <section class="bg-gradient py-20 text-center text-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-extrabold mb-6">Welcome to ARIA Dashboard</h2>
+            <p class="text-gray-300 text-lg mb-8">
+                Manage and access all ARIA products seamlessly. Join our <a href="#" class="text-blue-400 underline hover:text-blue-300">Discord</a> or check out the <a href="#" class="text-blue-400 underline hover:text-blue-300">Documentation</a>.
+            </p>
+            <button class="bg-blue-600 px-12 py-4 rounded-lg text-lg font-medium text-white hover:bg-blue-500 transition">
+                Get Started
+            </button>
+        </div>
+    </section>
 
-      <!-- Other Login Options -->
-      <div class="extra-options">
-        <a href="#" class="login-option">13+ LOGIN</a>
-        <a href="#" class="login-option">STAFF LOGIN</a>
-      </div>
-    </div>
-  </div>
+    <!-- Product Cards Section -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <h3 class="text-3xl font-bold mb-8">Available Products</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product Card -->
+            <div class="bg-gray-800 rounded-lg shadow-lg p-6 hover-scale transition">
+                <div class="relative">
+                    <img src="https://placehold.co/300x200" alt="JSM ATM" class="w-full rounded-lg object-cover">
+                    <span class="absolute top-2 right-2 bg-blue-600 text-white text-xs px-2 py-1 rounded-full shadow">New</span>
+                </div>
+                <div class="mt-4">
+                    <h4 class="text-xl font-bold text-white">JSM ATM</h4>
+                    <p class="text-gray-400 text-sm mt-2">State-of-the-art ATM designed for secure and efficient banking.</p>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-blue-400 font-semibold">R$200</span>
+                        <span class="text-gray-400 font-semibold">£1.50</span>
+                    </div>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <button class="w-full bg-blue-600 py-2 rounded-md text-white text-sm font-medium hover:bg-blue-500 transition">
+                        Buy Now
+                    </button>
+                    <button class="w-full bg-gray-700 py-2 rounded-md text-gray-300 text-sm font-medium hover:bg-gray-600 transition">
+                        Retrieve
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
 
-  <!-- Notification for Login Feedback -->
-  <div id="notification" class="notification">
-    <i id="notif-icon"></i>
-    <span id="notif-message"></span>
-    <div id="loading-spinner" class="loading-spinner" style="display: none;"></div>
-  </div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-10">
+        <div class="max-w-7xl mx-auto text-center text-gray-400 text-sm">
+            &copy; 2025 ARIA Dashboard. Built with ❤️ by the ARIA Team. 
+            | <a href="#" class="text-blue-400 underline hover:text-blue-300">Privacy Policy</a>
+        </div>
+    </footer>
 
-  <!-- JavaScript File -->
-  <script src="script.js"></script>
+    <!-- JavaScript for Sidebar -->
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const toggleSidebar = document.getElementById('toggleSidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('sidebar-hidden');
+            overlay.classList.remove('overlay-hidden');
+        });
+
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.add('sidebar-hidden');
+            overlay.classList.add('overlay-hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('sidebar-hidden');
+            overlay.classList.add('overlay-hidden');
+        });
+    </script>
 </body>
 </html>
